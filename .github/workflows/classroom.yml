@@ -1,0 +1,45 @@
+name: .NET Auto-Grading
+
+on:
+  push:
+    branches:
+      - main
+      - master # Agrega la rama principal de tu repositorio
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v8
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Find Solution File
+      id: find-solution
+      run: |
+        # Encuentra el archivo de solución en el repositorio del estudiante
+        SOLUTION_FILE=$(find . -name "*.sln" | head -n 1)
+        echo "::set-output name=solution::$SOLUTION_FILE"
+      shell: bash
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ steps.find-solution.outputs.solution }}
+
+    - name: Build
+      run: dotnet build ${{ steps.find-solution.outputs.solution }} --no-restore
+
+    - name: Change to Solution Directory
+      run: cd $(dirname "${{ steps.find-solution.outputs.solution }}")
+
+    - name: Test
+      run: dotnet test $(basename "${{ steps.find-solution.outputs.solution }}") --no-build --verbosity normal
