@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jj25dBUE97oziXMecdDwDAoxdzLdGb3c4/19RSTo5HHNFZX5idbhNTgHUg/y6tLsc46xeyUCb0JHqZCDiCQhIg==",
+  "dgSpecHash": "pcZndHMnMf9Klj61J+SzP5vKI8vyUXHDnD+kELGUatkGxd0tgv1e6Q7xyhvFar7agEGbvB3RWCZGYA9G5YvdEQ==",
   "success": true,
-  "projectFilePath": "/Users/bcnmac020/Documents/factoriaf5/bootcamp/p2-singulars/c-sharp/BirdWatcher/BirdWatcher.csproj",
+  "projectFilePath": "/Users/bcnmac020/Documents/factoriaf5/bootcamp/p2-singulars/c-sharp/birds-watcher-test-rcellas/BirdWatcher.csproj",
   "expectedPackageFiles": [
     "/Users/bcnmac020/.nuget/packages/exercism.tests/0.1.0-beta1/exercism.tests.0.1.0-beta1.nupkg.sha512",
     "/Users/bcnmac020/.nuget/packages/microsoft.codecoverage/16.8.3/microsoft.codecoverage.16.8.3.nupkg.sha512",
